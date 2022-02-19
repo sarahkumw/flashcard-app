@@ -1,0 +1,23 @@
+.createForm {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+label {
+    font-size: 20px;
+}
