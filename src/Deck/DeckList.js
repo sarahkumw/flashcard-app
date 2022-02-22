@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"
 import { listDecks } from "../utils/api";
+import DeleteDeckHandler from "./DeleteDeckHandler";
 
 function DeckList(){
     const [decks, setDecks] = useState([]);
@@ -19,10 +20,10 @@ function DeckList(){
             <div>
               <h5 style={{marginBottom:'20px'}}>{deck.description}</h5>
               <Link to={`/decks/${deck.id}`}>
-                <button style={{marginRight: "10px"}} className="btn btn-dark"><span className="oi oi-eye"></span>View</button>
+                <button style={{marginRight: "10px"}} className="btn btn-dark"><span className="oi oi-eye"></span> View</button>
               </Link>
               <Link to={`/decks/${deck.id}/study`}>
-                <button style={{marginRight: "10px"}} className="btn btn-primary"><span className="oi oi-book"></span>Study</button>
+                <button style={{marginRight: "10px"}} className="btn btn-primary"><span className="oi oi-book"></span> Study</button>
               </Link>
               <button style={{marginRight: "10px"}} className="btn btn-danger" onClick={()=>{ DeleteDeckHandler(deck.id) }}>
                 <span className="oi oi-trash"></span>

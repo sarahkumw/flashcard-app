@@ -9,6 +9,7 @@ import Study from "../Cards/Study";
 import AddCard from "../Cards/AddCard";
 import EditDeck from "../Deck/EditDeck";
 import EditCard from "../Cards/EditCard";
+import "./BreadCrumb.css";
 
 
 function Layout() {
@@ -19,7 +20,7 @@ function Layout() {
         <Switch>
           <Route exact path="/">
             <Link to="/decks/new">
-              <button className="btn btn-dark"><span style={{margin:'0 10px'}} className="oi oi-plus"></span>Create Deck</button>
+              <button className="btn btn-dark"><span style={{marginRight: "10px"}} className="oi oi-plus"></span>Create Deck</button>
             </Link>
             <DeckList /> 
           </Route>
