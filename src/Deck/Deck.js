@@ -3,10 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import { readDeck } from "../utils/api";
 import DeleteDeckHandler from "./DeleteDeckHandler";
 import CardList from "../Cards/CardList";
+import { useHistory } from "react-router-dom";
 
 function Deck() {
     const { deckId } = useParams();
     const [deck, setDeck] = useState({});
+    const history = useHistory();
     
     useEffect(()=>{
       readDeck(deckId)
@@ -32,7 +34,7 @@ function Deck() {
             <Link to={`/decks/${deck.id}/cards/new`}>
               <button style={{marginRight: "10px"}} className="btn btn-primary"><span className="oi oi-plus"></span> Add Cards</button>
             </Link>
-            <button style={{marginRight: "10px", alignItems: "flex-end"}} className="btn btn-danger" onClick={()=>{ DeleteDeckHandler(deck.id) }}>
+            <button style={{marginRight: "10px", alignItems: "flex-end"}} className="btn btn-danger" onClick={()=>{ DeleteDeckHandler(deck.id); history.push("/") }}>
               <span className="oi oi-trash"></span>
             </button>
           </div>

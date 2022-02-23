@@ -7,7 +7,17 @@ function DeckList(){
     const [decks, setDecks] = useState([]);
 
     useEffect(() => {
-        listDecks().then(setDecks);
+      const abortController = new AbortController();
+      try {
+        listDecks( abortController.signal )
+        .then(setDecks)
+      }
+      catch (error) {
+        console.log(error.message)
+      }
+      return () => {
+        abortController.abort();
+      };
     }, [decks]);
 
     return decks.map((deck, index)=>{

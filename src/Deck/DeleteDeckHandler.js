@@ -1,9 +1,10 @@
 import { deleteDeck } from "../utils/api";
 
 
+
 function DeleteDeckHandler(deckId) {
     if (window.confirm("Delete this deck? You will not be able to recover it.")) {
-        deleteDeck(deckId);
+        deleteDeck(deckId)
     }
     return null;
 }

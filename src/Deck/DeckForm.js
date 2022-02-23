@@ -11,11 +11,12 @@ function DeckForm({ loadedDeck, action }) {
     const [description, setDescription] = useState('');
 
     useEffect(()=>{
-        if(action === 'edit'){
+        if(action === "edit"){
             setName(loadedDeck.name);
             setDescription(loadedDeck.description);
         }
-    },[action, loadedDeck.name, loadedDeck.description])
+   
+    },[action])
 
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);
