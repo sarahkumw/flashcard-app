@@ -4,7 +4,7 @@ import "./CreateDeck.css";
 import { updateDeck, createDeck } from "../utils/api";
 
 
-function DeckForm({ loadedDeck, action }) {
+function DeckForm({ loadedDeck = { name: "", description: "" }, action }) {
 
     const history = useHistory();
     const [name, setName] = useState('');
@@ -16,7 +16,7 @@ function DeckForm({ loadedDeck, action }) {
             setDescription(loadedDeck.description);
         }
    
-    },[action])
+    },[action, loadedDeck.name, loadedDeck.description])
 
     const handleDescriptionChange = (event) => {
         setDescription(event.target.value);

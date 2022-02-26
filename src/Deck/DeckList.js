@@ -8,13 +8,16 @@ function DeckList(){
 
     useEffect(() => {
       const abortController = new AbortController();
-      try {
-        listDecks( abortController.signal )
-        .then(setDecks)
-      }
-      catch (error) {
-        console.log(error.message)
-      }
+      async function loadList() {
+        try {
+          listDecks( abortController.signal )
+          .then(setDecks)
+        }
+        catch (error) {
+          console.log(error.message)
+        }
+      };
+      loadList();
       return () => {
         abortController.abort();
       };
