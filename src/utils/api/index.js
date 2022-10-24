@@ -2,8 +2,9 @@
  * Defines the base URL for the API.
  * The default values is overridden by the `API_BASE_URL` environment variable.
  */
-const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
+//const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:5000";
 
+const API_BASE_URL = "https://flashcard-app-eta.vercel.app";
 /**
  * Defines the default headers for these functions to work with `json-server`
  */
@@ -44,7 +45,6 @@ function stripCards(deck) {
 async function fetchJson(url, options, onCancel) {
   try {
     const response = await fetch(url, options);
-
     if (response.status < 200 || response.status > 399) {
       throw new Error(`${response.status} - ${response.statusText}`);
     }
@@ -52,7 +52,6 @@ async function fetchJson(url, options, onCancel) {
     if (response.status === 204) {
       return null;
     }
-
     return await response.json();
 
   } catch (error) {
